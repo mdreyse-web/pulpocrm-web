@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0e0816;
+  --bg-2: #170d24;
+  --violet: #a855f7;
+  --violet-bright: #c084fc;
+  --lavender: #d8b4fe;
+  --ink: #f4eefb;
+  --muted: #9b8bb0;
+  --acid: #ffeb85;
+  --ease-out-back: cubic-bezier(0, 0, 0.85, 1.25);
+  --ease-out-gentle: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Anton', 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.font-mono2 {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ---------- neon text ---------- */
+.neon-stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--lavender);
+  text-shadow: 0 0 32px rgba(168, 85, 247, 0.35);
+}
+
+.neon-fill {
+  color: var(--lavender);
+  text-shadow:
+    0 0 12px rgba(192, 132, 252, 0.8),
+    0 0 48px rgba(168, 85, 247, 0.45);
+}
+
+/* ---------- pulpo motion ---------- */
+@keyframes pulpo-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-22px) rotate(2deg); }
+}
+
+@keyframes pulpo-wiggle {
+  0%, 100% { transform: rotate(-4deg) scale(1); }
+  50% { transform: rotate(4deg) scale(1.03); }
+}
+
+.pulpo-float {
+  animation: pulpo-float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.55));
+}
+
+.pulpo-wiggle:hover {
+  animation: pulpo-wiggle 0.9s ease-in-out infinite;
+}
+
+/* ---------- typing cursor ---------- */
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.cursor-blink {
+  animation: blink 0.6s infinite;
+}
+
+/* ---------- marquee ---------- */
+.marquee {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee-track.slow {
+  animation-duration: 60s;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ---------- letter bounce ---------- */
+.bounce-letter {
+  display: inline-block;
+  transition: transform 0.25s var(--ease-out-back);
+}
+
+.bounce-letter:hover {
+  transform: translateY(-14px) rotate(-6deg);
+  color: var(--violet-bright);
+}
+
+/* ---------- scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.8s var(--ease-out-gentle), transform 0.8s var(--ease-out-gentle);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- nav ---------- */
+.nav-shell {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.nav-shell.nav-hidden {
+  transform: translateY(-140%);
+}
+
+/* ---------- glow card ---------- */
+.glow-card {
+  position: relative;
+  background: linear-gradient(160deg, #1d102e 0%, #140a20 100%);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(168, 85, 247, 0.08),
+    0 0 60px rgba(168, 85, 247, 0.18),
+    inset 0 0 60px rgba(168, 85, 247, 0.05);
+}
+
+/* ---------- strikethrough items ---------- */
+.strike-item {
+  position: relative;
+  color: var(--muted);
+}
+
+.strike-item::after {
+  content: '';
+  position: absolute;
+  left: -2%;
+  top: 52%;
+  width: 104%;
+  height: 0.09em;
+  background: var(--violet);
+  transform: rotate(-1.2deg);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.7);
+}
+
+/* ---------- calendar slot ---------- */
+.cal-slot {
+  border: 1.5px dashed rgba(168, 85, 247, 0.5);
+  background:
+    repeating-linear-gradient(45deg, rgba(168, 85, 247, 0.04) 0 12px, transparent 12px 24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .pulpo-float,
+  .pulpo-wiggle:hover,
+  .cursor-blink {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
