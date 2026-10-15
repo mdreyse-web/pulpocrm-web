@@ -451,7 +451,7 @@ function Plan() {
                   <span className="ml-1 font-mono2 text-sm text-[#9b8bb0]">/mes</span>
                 </p>
                 <p className="mt-1 font-mono2 text-[11px] tracking-wider text-[#9b8bb0]">
-                  (4 USD SI ESTÁS FUERA DE CHILE)
+                  
                 </p>
               </div>
             </div>
@@ -462,10 +462,10 @@ function Plan() {
               </div>
               <div className="text-right">
                 <p className="font-display text-4xl md:text-5xl neon-fill">
-                  $25.000
+                  TAMBIÉN GRATIS POR AHORA...
                   <span className="ml-1 font-mono2 text-sm text-[#9b8bb0]">/año</span>
                 </p>
-                <p className="mt-1 font-mono2 text-[11px] tracking-wider text-[#9b8bb0]">(33 USD)</p>
+                <p className="mt-1 font-mono2 text-[11px] tracking-wider text-[#9b8bb0]"></p>
               </div>
             </div>
           </div>
