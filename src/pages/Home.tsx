@@ -6,7 +6,7 @@ import pulpo from '../assets/pulpo-neon.png'
    ============================================================ */
 const CALENDAR_URL = 'https://calendar.app.google/MDfT4DtxW98LUuNj7'
 const PRECIO_SETEO = '$15.000'
-const PRECIO_MENSUAL = '$3.500'
+const PRECIO_MENSUAL = 'HOY...GRATIS'
 const WHATSAPP_URL = 'https://wa.me/56975820965'
 /* ============================================================ */
 
